@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FU4-De-egA">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Measure-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Bsy-kU-MI0">
+                    <connections>
+                        <action selector="imageClicked:" destination="BYZ-38-t0r" id="AJs-ZJ-Quj"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Cropper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="th9-w5-jDz">
+                                <rect key="frame" x="0.0" y="64" width="375" height="274"/>
+                            </imageView>
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TzA-1Q-ULR">
+                                <rect key="frame" x="0.0" y="346" width="375" height="321"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Bsy-kU-MI0" appends="YES" id="9UW-xR-Hl9"/>
+                                </connections>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdX-UJ-paO">
+                                <rect key="frame" x="16" y="626" width="343" height="21"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="RbF-Be-Ygv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="qdX-UJ-paO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="DZ0-vf-GA8"/>
+                            <constraint firstItem="TzA-1Q-ULR" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="G81-0h-WTF"/>
+                            <constraint firstItem="TzA-1Q-ULR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="282" id="Whm-ya-wlU"/>
+                            <constraint firstItem="TzA-1Q-ULR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="YKU-7K-lZe"/>
+                            <constraint firstItem="th9-w5-jDz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ZN0-ja-bFI"/>
+                            <constraint firstItem="th9-w5-jDz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="aAO-La-hpB"/>
+                            <constraint firstItem="TzA-1Q-ULR" firstAttribute="top" secondItem="th9-w5-jDz" secondAttribute="bottom" constant="8" id="b9i-3a-Zoq"/>
+                            <constraint firstItem="qdX-UJ-paO" firstAttribute="centerX" secondItem="TzA-1Q-ULR" secondAttribute="centerX" id="gJt-pt-s2v"/>
+                            <constraint firstAttribute="trailing" secondItem="TzA-1Q-ULR" secondAttribute="trailing" id="gUj-vI-NVf"/>
+                            <constraint firstItem="th9-w5-jDz" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="kkX-DM-cFl"/>
+                            <constraint firstAttribute="bottom" secondItem="qdX-UJ-paO" secondAttribute="bottom" constant="20" symbolic="YES" id="por-YD-oDx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Measure" id="Kpa-a6-tPG">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="cnm-IV-g6V">
+                            <connections>
+                                <action selector="editPressed:" destination="BYZ-38-t0r" id="fRp-x9-Y6k"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="wfG-08-dpw">
+                            <connections>
+                                <action selector="openLibraryPressed:" destination="BYZ-38-t0r" id="6Pw-SI-aGm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="editItem" destination="cnm-IV-g6V" id="SMH-Z9-GDz"/>
+                        <outlet property="imageMeasure" destination="TzA-1Q-ULR" id="m0K-OW-eEY"/>
+                        <outlet property="imageView" destination="th9-w5-jDz" id="8ZY-cw-F0v"/>
+                        <outlet property="libraryItem" destination="wfG-08-dpw" id="srG-GQ-yXi"/>
+                        <outlet property="medidaLabel" destination="qdX-UJ-paO" id="Ait-TW-iu7"/>
+                        <segue destination="Hbx-PP-KNN" kind="show" identifier="showCrop" id="b0T-iA-5MU"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1076" y="126.38680659670166"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cdQ-4y-MUH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FU4-De-egA" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9rn-YT-YWo">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="YGa-JR-8Ba"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="giN-TG-dZE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="217" y="126"/>
+        </scene>
+        <!--Crop View Controller-->
+        <scene sceneID="fMe-ZB-CmZ">
+            <objects>
+                <viewController id="Hbx-PP-KNN" customClass="CropViewController" customModule="Cropper" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ilm-XV-fgd"/>
+                        <viewControllerLayoutGuide type="bottom" id="LFV-h3-Izm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Q7q-iQ-M8I">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YIe-rw-9L1">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem title="Cancel" id="eMY-bJ-iH8">
+                                        <connections>
+                                            <action selector="cancelBtn:" destination="Hbx-PP-KNN" id="MdZ-4y-gkz"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Reset" id="ZsT-0G-Dx6">
+                                        <connections>
+                                            <action selector="resetBtn:" destination="Hbx-PP-KNN" id="bnS-Qo-mvU"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="ZqZ-ZK-06t"/>
+                                    <barButtonItem title="Crop" id="gY3-NW-LoT">
+                                        <color key="tintColor" red="1" green="0.59999999999999998" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="cropBtn:" destination="Hbx-PP-KNN" id="cTV-4c-3WW"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LFV-h3-Izm" firstAttribute="top" secondItem="YIe-rw-9L1" secondAttribute="bottom" id="1vY-C1-hcq"/>
+                            <constraint firstAttribute="trailing" secondItem="YIe-rw-9L1" secondAttribute="trailing" id="GU4-nQ-N51"/>
+                            <constraint firstItem="YIe-rw-9L1" firstAttribute="leading" secondItem="Q7q-iQ-M8I" secondAttribute="leading" id="q9h-bo-KI5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="plD-6q-UEq"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="evm-NO-iKi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1894" y="125"/>
+        </scene>
+    </scenes>
+</document>
