@@ -26,7 +26,7 @@ let kCanvasHeaderHeigth: CGFloat       = 100.0
 
 let kCropViewLineWidth: CGFloat  = 2.0
 
-let kCropViewCornerWidth: CGFloat  = 2.0
+let kCropViewCornerWidth: CGFloat  = 5.0
 let kCropViewCornerLength: CGFloat = 22.0
 
 let kAnimationDuration: TimeInterval = 0.25

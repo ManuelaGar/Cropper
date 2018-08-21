@@ -22,19 +22,18 @@ class ViewController: UIViewController {
     
     var imageWasTapped = false
     var tap = 0
-    var mmPerPixelCtant: CGFloat = 0
-    //var text:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //medidaLabel?.text = text
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        mmEnImagenCortada()
         if (self.image == nil) {
             openLibrary()
+            self.medidaLabel?.text = ""
         }
     }
     
@@ -43,10 +42,11 @@ class ViewController: UIViewController {
     }
     
     // MARK: - Navigation
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc1 = segue.destination as! CropViewController
         vc1.tap1 = self.tap
+        
         if segue.identifier == "showCrop" {
             let exampleCropViewController = segue.destination as! CropViewController
             exampleCropViewController.image = sender as! UIImage
@@ -62,7 +62,6 @@ class ViewController: UIViewController {
         pickerView.sourceType = UIImagePickerControllerSourceType.photoLibrary
         self.present(pickerView, animated: true, completion: nil)
     }
-    
     
     @IBAction func openLibraryPressed(_ sender: UIBarButtonItem) {
         let pickerView = UIImagePickerController.init()
@@ -80,13 +79,22 @@ class ViewController: UIViewController {
     }
     
     @IBAction func imageClicked(_ sender: Any){
-        print("image tapped")
+        print("image tapped \(imageWasTapped)")
         imageWasTapped = true
         self.tap = 1
-        print("\(imageWasTapped)")
-        self.performSegue(withIdentifier: "showCrop", sender: image)
+        edit(image: image)
     }
     
+    @objc func mmEnImagenCortada(){
+        let mmX = UserDefaults.standard.float(forKey: "mmEnX")
+        let mmY = UserDefaults.standard.float(forKey: "mmEnY")
+        
+        if (mmX != 0 || mmY != 0) {
+            self.medidaLabel?.text = "mmX: \(mmX) y mmY: \(mmY)"
+        } //else {
+//            self.medidaLabel?.text = "mmX: \(0) y mmY: \(0)"
+//        }
+    }
 }
 
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -111,16 +119,18 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
 
 extension ViewController: IGRPhotoTweakViewControllerDelegate {
     func photoTweaksController(_ controller: IGRPhotoTweakViewController, didFinishWithCroppedImage croppedImage: UIImage) {
-        let mmX = UserDefaults.standard.float(forKey: "mmEnX")
-        let mmY = UserDefaults.standard.float(forKey: "mmEnY")
-        if imageWasTapped == true {
+        if self.tap == 1 {
+            self.tap = 0
             imageWasTapped = false
             self.imageMeasure?.image = croppedImage
-            medidaLabel?.text = "mmX: \(mmX) y mmY: \(mmY)"
+            let croppedWidth: CGFloat = croppedImage.size.width
+            let croppedHeight: CGFloat = croppedImage.size.height
+            let aspect = croppedHeight/croppedWidth
+            UserDefaults.standard.set(aspect, forKey: "aspect")
+            print("Aspect \(aspect) y \(UserDefaults.standard.float(forKey: "aspect"))")
         } else {
             self.imageView?.image = croppedImage
         }
-        
         _ = controller.navigationController?.popViewController(animated: true)
     }
     
@@ -128,4 +138,3 @@ extension ViewController: IGRPhotoTweakViewControllerDelegate {
         _ = controller.navigationController?.popViewController(animated: true)
     }
 }
-

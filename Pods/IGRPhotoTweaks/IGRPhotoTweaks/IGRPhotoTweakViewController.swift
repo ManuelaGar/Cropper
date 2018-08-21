@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 public protocol IGRPhotoTweakViewControllerDelegate : class {
     
     /**
@@ -42,12 +41,11 @@ open class IGRPhotoTweakViewController: UIViewController {
      Flag indicating whether the image cropped will be saved to photo library automatically. Defaults to YES.
      */
     internal var isAutoSaveToLibray: Bool = false
-    internal var mmPorPixel: Float = 0
-    internal let tamañoMarcador : Float = 30.0
+    
     
     //MARK: - Private VARs
     
-    internal lazy var photoView: IGRPhotoTweakView! = { [unowned self] by in
+    public lazy var photoView: IGRPhotoTweakView! = { [unowned self] by in
         
         let photoView = IGRPhotoTweakView(frame: self.view.bounds,
                                           image: self.image,
@@ -108,43 +106,6 @@ open class IGRPhotoTweakViewController: UIViewController {
         self.delegate?.photoTweaksControllerDidCancel(self)
     }
     
-    public func pixelsX() -> Float {
-        let t: CGAffineTransform = self.photoView.photoContentView.transform
-        let xScale: CGFloat = sqrt(t.a * t.a + t.c * t.c)
-        let yScale: CGFloat = sqrt(t.b * t.b + t.d * t.d)
-        print(xScale)
-        print(yScale)
-        let pixelsInCroppedImage = Float(image.size.width/xScale)
-        mmPorPixel = Float(tamañoMarcador/pixelsInCroppedImage)
-        //let cmInCroppedImage = (pixelsInCroppedImage*5)/1180.20049
-        print(pixelsInCroppedImage)
-        print(mmPorPixel)
-        return mmPorPixel
-    }
-    
-    public func mmEnImagenCortada(mmxPixel: Float) -> (Float, Float) {
-        let t: CGAffineTransform = self.photoView.photoContentView.transform
-        let xScale: CGFloat = sqrt(t.a * t.a + t.c * t.c)
-        let yScale: CGFloat = sqrt(t.b * t.b + t.d * t.d)
-        
-        let pixelsInCroppedImageX = Float(image.size.width/xScale)
-        let pixelsInCroppedImageY = Float(image.size.width/yScale)
-        
-        print("mm por pixel \(mmxPixel)")
-        
-        let mmTotalesX = pixelsInCroppedImageX * mmxPixel
-        let mmTotalesY = pixelsInCroppedImageY * mmxPixel
-        
-        print(xScale)
-        print(yScale)
-        print(pixelsInCroppedImageX)
-        print(pixelsInCroppedImageY)
-        
-        print(mmTotalesX)
-        print(mmTotalesY)
-        return (mmTotalesX, mmTotalesY)
-    }
-    
     public func cropAction() {
         var transform = CGAffineTransform.identity
         // translate
@@ -165,6 +126,13 @@ open class IGRPhotoTweakViewController: UIViewController {
                                                        outputWidth: self.image.size.width,
                                                        cropSize: self.photoView.cropView.frame.size,
                                                        imageViewSize: self.photoView.photoContentView.bounds.size)
+            
+//            print("image width \(self.image.size.width)")
+//            print("image height \(self.image.size.height)")
+//            print(self.photoView.cropView.frame.size.width)
+//            print(self.photoView.cropView.frame.size.height)
+//            print("cropView \(self.photoView.cropView.frame.size)")
+//            print("ContentView \(self.photoView.photoContentView.bounds.size)")
             
             let image = UIImage(cgImage: imageRef)
             if self.isAutoSaveToLibray {
@@ -198,7 +166,7 @@ open class IGRPhotoTweakViewController: UIViewController {
     }
     
     open func customHighlightMaskAlphaValue() -> CGFloat {
-        return 0.3
+        return 0.5
     }
     
     open func customCanvasHeaderHeigth() -> CGFloat {

@@ -27,7 +27,7 @@ public class IGRPhotoScrollView: UIScrollView {
     /*
      View for func viewForZooming(in scrollView: UIScrollView)
      */
-    var photoContentView: IGRPhotoContentView!
+    public var photoContentView: IGRPhotoContentView!
     
     /*
      The optional scroll delegate.

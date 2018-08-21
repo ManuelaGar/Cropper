@@ -42,7 +42,9 @@ extension CGImage {
                                               width: imageViewSize.width,
                                               height: imageViewSize.height))
         
+        
         let result = context!.makeImage()!
+        print("Context \(context!.makeImage()!)")
         
         return result
     }

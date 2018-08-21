@@ -12,6 +12,7 @@
 		324CAA442118DD4600F96BB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 324CAA422118DD4600F96BB9 /* Main.storyboard */; };
 		324CAA462118DD5100F96BB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 324CAA452118DD5100F96BB9 /* Assets.xcassets */; };
 		324CAA492118DD5100F96BB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 324CAA472118DD5100F96BB9 /* LaunchScreen.storyboard */; };
+		325BF77721276EAF00BE5F95 /* Modelo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325BF77621276EAF00BE5F95 /* Modelo.swift */; };
 		32E08ACA2118E37400F3EF66 /* CropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E08AC92118E37400F3EF66 /* CropViewController.swift */; };
 		50C99A381DA6B06D75639358 /* Pods_Cropper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74994CCDE8175746F6157649 /* Pods_Cropper.framework */; };
 /* End PBXBuildFile section */
@@ -24,6 +25,7 @@
 		324CAA452118DD5100F96BB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		324CAA482118DD5100F96BB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		324CAA4A2118DD5100F96BB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		325BF77621276EAF00BE5F95 /* Modelo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modelo.swift; sourceTree = "<group>"; };
 		32E08AC92118E37400F3EF66 /* CropViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropViewController.swift; sourceTree = "<group>"; };
 		74994CCDE8175746F6157649 /* Pods_Cropper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cropper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EE8D49222C88D0E7A0284C5 /* Pods-Cropper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cropper.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cropper/Pods-Cropper.release.xcconfig"; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				324CAA3E2118DD4600F96BB9 /* AppDelegate.swift */,
 				324CAA402118DD4600F96BB9 /* ViewController.swift */,
 				32E08AC92118E37400F3EF66 /* CropViewController.swift */,
+				325BF77621276EAF00BE5F95 /* Modelo.swift */,
 				324CAA422118DD4600F96BB9 /* Main.storyboard */,
 				324CAA472118DD5100F96BB9 /* LaunchScreen.storyboard */,
 				324CAA4A2118DD5100F96BB9 /* Info.plist */,
@@ -222,6 +225,7 @@
 				324CAA412118DD4600F96BB9 /* ViewController.swift in Sources */,
 				324CAA3F2118DD4600F96BB9 /* AppDelegate.swift in Sources */,
 				32E08ACA2118E37400F3EF66 /* CropViewController.swift in Sources */,
+				325BF77721276EAF00BE5F95 /* Modelo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
